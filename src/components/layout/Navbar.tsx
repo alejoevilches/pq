@@ -10,7 +10,9 @@ export default function Navbar(){
         />
       </form>
       <section className="flex flex-row gap-4">
-        <button>Crear cuenta</button>
+        <a href="/register">
+          <button>Crear cuenta</button>
+        </a>
         <button>Iniciar sesión</button>
       </section>
     </nav>
