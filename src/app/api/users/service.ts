@@ -1,4 +1,4 @@
-import { AppDataSource } from "../db/data-server";
+import { AppDataSource } from "@/app/lib/db/data-server"; 
 
 export default async function createUser(body){
   const repo=AppDataSource.getRepository("User");
