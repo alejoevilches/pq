@@ -1,10 +1,10 @@
 export default function createUserService(formValues){
   try{
-    console.log('values', formValues);
     fetch("/api/users", {
       method: "POST",
       body: JSON.stringify(formValues)
-    }).then(res=>console.log(res));
+    }).then(res=>res.json())
+    .then(data=>console.log(data));
   } catch(err){
     console.error(err);
   }

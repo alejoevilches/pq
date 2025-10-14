@@ -1,8 +1,6 @@
 "use client"
 import createUserService from "@/app/services/userServices";
 
-//TODO: Esto deberia exportarse a un servicio
-
 export default function RegisterForm(){
   const handleSubmit=async (e: React.FormEvent<HTMLFormElement>)=>{
     e.preventDefault();
