@@ -1,4 +1,5 @@
 "use client"
+import createUserService from "@/app/services/userServices";
 
 //TODO: Esto deberia exportarse a un servicio
 
@@ -7,24 +8,14 @@ export default function RegisterForm(){
     e.preventDefault();
     const formData=new FormData(e.target as HTMLFormElement);
     const formValues={
-      "name": formData.get("name"),
-      "lastname": formData.get("lastname"),
+      "nombre": formData.get("name"),
+      "apellido": formData.get("lastname"),
       "email": formData.get("email"),
-      "phone": formData.get("phone"),
+      "telefono": formData.get("phone"),
       "dni": formData.get("dni"),
-      "pass": formData.get("pass"),
+      "clave": formData.get("pass"),
     }
-    
-    try{
-      const response=await fetch('api/users', {method: 'POST', body: JSON.stringify(formValues)});
-      if (!response.ok){
-        console.error(response.status)
-      }
-      const result=await response.json()
-      console.log(result);
-    } catch(err){
-      console.error(err)
-    }
+    return createUserService(formValues);
   }
 
   return(

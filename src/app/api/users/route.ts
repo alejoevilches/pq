@@ -1,4 +1,4 @@
-import createUser from "@/app/lib/services/usersService";
+import createUser from "./service";
 import { NextResponse } from "next/server";
 
 export async function POST(request:Request){

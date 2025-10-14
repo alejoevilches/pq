@@ -1,7 +1,11 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  swcMinify: true,
+  compiler: {
+    // ⚙️ Activar soporte para TypeORM decorators en SWC
+    experimentalDecorators: true,
+    emitDecoratorMetadata: true,
+  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
