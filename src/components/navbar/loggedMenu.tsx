@@ -9,8 +9,8 @@ export default function LoggedMenu({name}){
   }
   return (
     <>
-      <p>Bienvenido, {name}</p>
-        <button onClick={handleLogout}>Cerrar sesión</button>
+      <a href="/profile"><p>Bienvenido, {name}</p></a>
+      <button onClick={handleLogout}>Cerrar sesión</button>
     </>
   )
 }
