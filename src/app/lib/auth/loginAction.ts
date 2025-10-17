@@ -3,6 +3,7 @@
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation";
 
+//TODO: Tipado aca
 export default async function loginAction(data){
   if(data.token){
     const cookieStorage = await cookies();

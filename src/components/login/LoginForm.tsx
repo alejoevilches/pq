@@ -1,5 +1,5 @@
 "use client"
-import loginService from "@/app/services/authServices";
+import { loginService } from "@/app/services/authServices";
 
 //TODO: Tipado aca
 export default function LoginForm(){

@@ -6,3 +6,4 @@ export async function POST(request: Request){
   const result = await login(body);
   return NextResponse.json(result, {status: 200})
 }
+

@@ -1,11 +1,16 @@
+"use client"
+
+import { logoutService } from "@/app/services/authServices";
+
 //TODO: Tipado aca
 export default function LoggedMenu({name}){
+  const handleLogout = () => {
+    return logoutService();
+  }
   return (
     <>
       <p>Bienvenido, {name}</p>
-      <a href="/login">
-        <button>Cerrar sesión</button>
-      </a> 
+        <button onClick={handleLogout}>Cerrar sesión</button>
     </>
   )
 }
