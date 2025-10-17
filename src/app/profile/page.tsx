@@ -1,4 +1,5 @@
 "use client"
+import { useModalStore } from "@/app/store/modalStore";
 interface Usuario{
   usuId: number;
   nombre: string;
@@ -17,6 +18,7 @@ import { getCurrentUserService } from "../services/userServices"
 
 export default function Profile(){
   const [user, setUser] = useState<Usuario>();
+  const { setOpenModal } = useModalStore();
 
   useEffect(()=>{
     getCurrentUserService().then(data=>setUser(data))
@@ -43,9 +45,7 @@ export default function Profile(){
         <a href="/">
           <button className="bg-puroquilmes-300 rounded-2xl p-4">Volver al inicio</button>
         </a>
-        <a href="/">
-          <button className="bg-puroquilmes-300 rounded-2xl p-4">Agregar lugar</button>
-        </a>
+        <button onClick={()=>setOpenModal("addPlace")} className="bg-puroquilmes-300 rounded-2xl p-4">Agregar lugar</button>
       </div>
     </section>
   )

@@ -6,24 +6,10 @@ export default function GlobalModals() {
   const { openModal, modalProps, closeModal } = useModalStore();
 
   switch (openModal) {
-    case "profile":
+    case "addPlace":
       return (
-        <Modal title="Perfil" onClose={closeModal}>
-          <p>Usuario: {modalProps?.user?.nombre}</p>
-        </Modal>
-      );
-
-    case "editUser":
-      return (
-        <Modal title="Editar usuario" onClose={closeModal}>
-          <p>Editando ID: {modalProps?.userId}</p>
-        </Modal>
-      );
-
-    case "delete":
-      return (
-        <Modal title="Eliminar cuenta" onClose={closeModal}>
-          <p>¿Seguro que querés eliminar esta cuenta?</p>
+        <Modal title="Agregar Lugar" onClose={closeModal}>
+          <p>Holis</p>
         </Modal>
       );
 
