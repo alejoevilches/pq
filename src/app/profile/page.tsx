@@ -29,7 +29,7 @@ export default function Profile(){
   return(
     <section className="flex flex-col items-center m-4">
       <h1 className="text-4xl">Bienvenido a tu perfil</h1>
-      <div className="bg-puroquilmes-100 p-20 justify-center rounded-lg mt-10">
+      <div className="bg-puroquilmes-100 p-20 justify-center rounded-lg my-10">
         <h2>Informacion de contacto</h2>
         <div>
           <p>Nombre: {user.nombre}</p>
@@ -38,6 +38,14 @@ export default function Profile(){
           <p>Telefono: {user.telefono}</p>
           <p>DNI: {user.dni}</p>
         </div>
+      </div>
+      <div className="flex gap-4">
+        <a href="/">
+          <button className="bg-puroquilmes-300 rounded-2xl p-4">Volver al inicio</button>
+        </a>
+        <a href="/">
+          <button className="bg-puroquilmes-300 rounded-2xl p-4">Agregar lugar</button>
+        </a>
       </div>
     </section>
   )
