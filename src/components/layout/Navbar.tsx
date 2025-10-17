@@ -13,7 +13,9 @@ export default function Navbar(){
         <a href="/register">
           <button>Crear cuenta</button>
         </a>
-        <button>Iniciar sesión</button>
+        <a href="/login">
+          <button>Iniciar sesión</button>
+        </a> 
       </section>
     </nav>
   )

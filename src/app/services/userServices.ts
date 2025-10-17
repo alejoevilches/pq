@@ -1,4 +1,4 @@
-export default function createUserService(formValues){
+export function createUserService(formValues){
   try{
     fetch("/api/users", {
       method: "POST",

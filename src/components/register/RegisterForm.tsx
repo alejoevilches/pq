@@ -1,5 +1,5 @@
 "use client"
-import createUserService from "@/app/services/userServices";
+import {createUserService} from "@/app/services/userServices";
 
 export default function RegisterForm(){
   const handleSubmit=async (e: React.FormEvent<HTMLFormElement>)=>{
