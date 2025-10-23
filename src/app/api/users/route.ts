@@ -12,12 +12,10 @@ export async function GET(request: Request){
   try{
     const authHeader=request.headers.get("authorization");
     const token=authHeader?.split(" ")[1]
-    console.log('token de route', token)
     if (!token) {
       return NextResponse.json({ error: "Token requerido" }, { status: 401 });
     }
     const secret = new TextEncoder().encode(process.env.JWT_SECRET);
-    console.log("🔑 Verificación token - secret:", process.env.JWT_SECRET);
     const { payload } = await jwtVerify(token, secret);
     //TODO: Tipar los payloads
     const userId=payload.usuId;

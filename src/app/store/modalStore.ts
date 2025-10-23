@@ -1,5 +1,6 @@
 import { create } from "zustand";
 
+//TODO: Por seguridad, esto deberia ser un enum
 type ModalName = string | null;
 
 interface ModalStore {

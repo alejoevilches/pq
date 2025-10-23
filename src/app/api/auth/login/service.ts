@@ -20,7 +20,6 @@ export default async function login(body){
         .setProtectedHeader({alg: 'HS256'})
         .setExpirationTime('2h')
         .sign(secret);
-      console.log("🔐 Generación token - secret:", process.env.JWT_SECRET);
       return {message: "Login successful", token: jwt};
   }
 }

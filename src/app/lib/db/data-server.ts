@@ -1,6 +1,8 @@
+import { TipoLugar } from "@/entities/entities/TipoLugar";
 import { Usuarios } from "../../../entities/entities/Usuarios"; // Ruta relativa corregida
 import "reflect-metadata"
 import { DataSource } from "typeorm"
+import { Zonas } from "@/entities/entities/Zonas";
 
 export const AppDataSource = new DataSource({
     type: "mysql",
@@ -12,7 +14,7 @@ export const AppDataSource = new DataSource({
     synchronize: true, //poner en true si estamos usando la base local
     subscribers: [],
     migrations: [],
-    entities: [Usuarios],
+    entities: [Usuarios, TipoLugar, Zonas],
 })
 
 export const initializeDataSource = async () => {
