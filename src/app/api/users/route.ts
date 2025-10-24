@@ -3,9 +3,13 @@ import { NextResponse } from "next/server";
 import { jwtVerify } from "jose";
 
 export async function POST(request:Request){
-  const body=await request.json();
-  const result=await createUser(body);
-  return NextResponse.json(result, {status: 201});
+  try{
+    const body=await request.json();
+    const result=await createUser(body);
+    return NextResponse.json(result, {status: 201});
+  } catch(e){
+    return NextResponse.json(e, {status:400});
+  }
 }
 
 export async function GET(request: Request){

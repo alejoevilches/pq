@@ -1,7 +1,7 @@
 "use client"
 import { validateLetters, validateNumbers } from "@/app/lib/validations";
 import {createUserService} from "@/app/services/userServices";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import { redirect } from "next/navigation";
 
 export default function RegisterForm(){
@@ -16,8 +16,12 @@ export default function RegisterForm(){
       "dni": formData.get("dni"),
       "clave": formData.get("pass"),
     }
-    await createUserService(formValues);
-    return redirect("/login")
+    const result = await createUserService(formValues);
+    if (result){
+      redirect("/login");
+    } else {
+      toast("Usuario ya existente");
+    }
   }
 
   return(

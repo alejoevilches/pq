@@ -2,14 +2,17 @@ import { toast } from "react-toastify";
 import getCookies from "../lib/auth/getCookies";
 
 //TODO: Tipado aca
-export function createUserService(formValues){
+export async function createUserService(formValues){
   try{
-    fetch("/api/users", {
+    const res = await fetch("/api/users", {
       method: "POST",
       body: JSON.stringify(formValues)
-    }).then(res=>res.json())
-    .then(data=>console.log(data)); //TODO: Esto esta mal
-    const notify = toast("Usuario creado")
+    })
+    const data = res.json()
+    if(!res.ok){
+      return;
+    }
+    return {ok: true, data}
   } catch(err){
     console.error(err);
   }
