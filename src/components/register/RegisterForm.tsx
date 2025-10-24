@@ -1,4 +1,5 @@
 "use client"
+import { validateLetters, validateNumbers } from "@/app/lib/validations";
 import {createUserService} from "@/app/services/userServices";
 
 export default function RegisterForm(){
@@ -19,17 +20,51 @@ export default function RegisterForm(){
   return(
     <form className="flex flex-col gap-4 bg-white w-xl rounded-2xl p-4" onSubmit={handleSubmit}>
       <label htmlFor="name">Nombre</label>
-      <input className="register-input" type="text" placeholder="Juan" id="name" name="name"/>
+      <input 
+        className="register-input" 
+        type="text" placeholder="Juan" 
+        id="name" 
+        name="name" 
+        onChange={validateLetters} />
       <label htmlFor="lastname">Apellido</label>
-      <input className="register-input" type="text" placeholder="Perez" id="lastname" name="lastname"/>
+      <input 
+        className="register-input" 
+        type="text" placeholder="Perez" 
+        id="lastname" name="lastname" 
+        onChange={validateLetters}/>
       <label htmlFor="email">Email</label>
-      <input className="register-input" type="email" placeholder="jperez@google.com" id="email" name="email"/>
+      <input 
+        className="register-input" 
+        type="email" 
+        placeholder="jperez@google.com" 
+        id="email" 
+        name="email"/>
       <label htmlFor="phone">Telefono</label>
-      <input className="register-input" type="number" placeholder="42560912" id="phone" name="phone"/>
+      <input 
+        className="register-input" 
+        type="text" 
+        placeholder="42560912" 
+        id="phone" 
+        name="phone"
+        maxLength={10}
+        onChange={validateNumbers}
+        />
       <label htmlFor="dni">Número de Documento</label>
-      <input className="register-input" type="number" placeholder="30150912" id="dni" name="dni"/>
+      <input 
+        className="register-input" 
+        type="text" 
+        placeholder="30150912" 
+        id="dni" 
+        name="dni"
+        maxLength={8}
+        onChange={validateNumbers}
+        />
       <label htmlFor="pass">Contraseña</label>
-      <input className="register-input" type="password" id="pass" name="pass"/>
+      <input 
+        className="register-input" 
+        type="password" 
+        id="pass" 
+        name="pass"/>
       <input type="submit" value="Crear cuenta" />
     </form>
   )
