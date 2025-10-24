@@ -6,9 +6,11 @@
 - REGISTER: Faltan validaciones en el front
 - REGISTER: Faltan validaciones en el back
 - REGISTER: El usuario solo deberia existir una sola vez
-- REGISTER: Cuando se crea tiene que aparecer un modal y redirigir a la pagina principal
+- REGISTER: Cuando se crea tiene que aparecer un modal
 - API: Todas las apis recorren solo el happy path
 - CREAR LOCAL: El modal hace queries a la db constantemente sobre zonas y tipo de lugar, ver de cachear eso
 - ARCH: Mover todos los tipos a un solo directorio
 - API: Hacer que los services consuman una funcion depende de la accion (update, create, edit, read)
 - API DELETE PLACE: No es post el metodo, deberia ser delete
+- LOGOUT: Modal que indique que la sesion esta cerrada
+- PROFILE: La pagina deberia estar protegida si no iniciaste sesion

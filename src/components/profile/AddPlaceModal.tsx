@@ -27,7 +27,7 @@ export default function AddPlaceModal() {
   }
 
   //TODO: Tipado aca
-  const handleAddPlace=(e)=>{
+  const handleAddPlace= async (e)=>{
     e.preventDefault()
     const formData = new FormData(e.target);
     const formValues = {
@@ -37,11 +37,12 @@ export default function AddPlaceModal() {
       tipo_lugar: formData.get("tipo_lugar"),
       zona: formData.get("zona"),
     }
-    return createPlaceService(formValues);
+    await createPlaceService(formValues);
+    
   }
 
   return (
-    <form onSubmit={handleAddPlace}>
+    <form onSubmit={handleAddPlace} className="flex flex-col gap-4">
       <label htmlFor="nombre">Nombre del Lugar</label>
       <input type="text" name="nombre" id="nombre" />
       <label htmlFor="ubicacion">Ubicación</label>

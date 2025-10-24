@@ -31,7 +31,7 @@ export default function DeletePlaceModal(){
   }
 
   return(
-    <form onSubmit={handleDeletePlace}>
+    <form onSubmit={handleDeletePlace} className="flex flex-col gap-4">
       <select name="local" id="local">
         {places.map(p=>{
           return (
