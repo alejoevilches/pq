@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import getCookies from "../lib/auth/getCookies";
 
 //TODO: Tipado aca
@@ -7,7 +8,8 @@ export function createUserService(formValues){
       method: "POST",
       body: JSON.stringify(formValues)
     }).then(res=>res.json())
-    .then(data=>console.log(data));
+    .then(data=>console.log(data)); //TODO: Esto esta mal
+    const notify = toast("Usuario creado")
   } catch(err){
     console.error(err);
   }

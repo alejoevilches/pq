@@ -1,6 +1,8 @@
 "use client"
 import { validateLetters, validateNumbers } from "@/app/lib/validations";
 import {createUserService} from "@/app/services/userServices";
+import { ToastContainer } from "react-toastify";
+import { redirect } from "next/navigation";
 
 export default function RegisterForm(){
   const handleSubmit=async (e: React.FormEvent<HTMLFormElement>)=>{
@@ -14,11 +16,13 @@ export default function RegisterForm(){
       "dni": formData.get("dni"),
       "clave": formData.get("pass"),
     }
-    return createUserService(formValues);
+    await createUserService(formValues);
+    return redirect("/login")
   }
 
   return(
     <form className="flex flex-col gap-4 bg-white w-xl rounded-2xl p-4" onSubmit={handleSubmit}>
+      <ToastContainer />
       <label htmlFor="name">Nombre</label>
       <input 
         className="register-input" 
