@@ -12,7 +12,15 @@ export async function getZonesService(){
 
 //TODO: Tipado aca
 export async function createPlaceService(place){
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/places/create`, {method: 'POST'});
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/places/create`, 
+    {
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(place)
+    });
+  console.log('res', res)
   const data = await res.json();
   return data;
 }

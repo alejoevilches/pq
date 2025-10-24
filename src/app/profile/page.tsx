@@ -46,6 +46,7 @@ export default function Profile(){
           <button className="bg-puroquilmes-300 rounded-2xl p-4">Volver al inicio</button>
         </a>
         <button onClick={()=>setOpenModal("addPlace")} className="bg-puroquilmes-300 rounded-2xl p-4">Agregar lugar</button>
+        <button onClick={()=>setOpenModal("deletePlace")} className="bg-puroquilmes-300 rounded-2xl p-4">Eliminar lugar</button>
       </div>
     </section>
   )

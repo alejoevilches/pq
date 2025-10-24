@@ -13,6 +13,12 @@ export default function GlobalModals() {
           <AddPlaceModal />
         </Modal>
       );
+    case "deletePlace":
+      return(
+        <Modal title="Eliminar Lugar" onClose={closeModal}>
+          <DeletePlaceModal />
+        </Modal>
+      )
     default:
       return null;
   }

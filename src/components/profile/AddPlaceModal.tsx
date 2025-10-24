@@ -2,7 +2,6 @@
 import { getPlaceTypesService, getZonesService } from "@/app/services/placeServices";
 import { useEffect, useState } from "react";
 import { createPlaceService } from "@/app/services/placeServices";
-import { useModalStore } from "@/app/store/modalStore";
 
 interface ITipoLugar{
   tipoLugarId: number;
@@ -61,10 +60,11 @@ export default function AddPlaceModal() {
       <select name="zona" id="zona">
         {zones.map((z: IZona)=>{
           return (
-            <option key={z.zonaId} value={z.nombre}>{z.nombre}</option>
+            <option key={z.zonaId} value={z.zonaId}>{z.nombre}</option>
           )
         })}
       </select>
+      <input type="submit" value="Crear lugar" />
     </form>
   );
 }

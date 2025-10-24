@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
+import { createPlace } from "./service";
 
 export async function POST(req: Request){
   const body = await req.json();
+  console.log(body);
   const result = await createPlace(body);
-  return new NextResponse(result, {status: 201});
+  return NextResponse.json(result, {status: 201});
 }
