@@ -47,6 +47,9 @@ export default function Profile(){
         </a>
         <button onClick={()=>setOpenModal("addPlace")} className="bg-puroquilmes-300 rounded-2xl p-4">Agregar lugar</button>
         <button onClick={()=>setOpenModal("deletePlace")} className="bg-puroquilmes-300 rounded-2xl p-4">Eliminar lugar</button>
+        <a href="/trips">
+          <button className="bg-puroquilmes-300 rounded-2xl p-4">Gestor de viajes</button>
+        </a>
       </div>
     </section>
   )
