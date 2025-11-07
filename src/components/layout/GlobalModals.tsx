@@ -19,7 +19,13 @@ export default function GlobalModals() {
         <Modal title="Eliminar Lugar" onClose={closeModal}>
           <DeletePlaceModal />
         </Modal>
-      )
+      );
+    case "addTrip":
+      return(
+        <Modal title="Agregar Viaje" onClose={closeModal}>
+          <AddTripModal />
+        </Modal>
+      );
     default:
       return null;
   }
