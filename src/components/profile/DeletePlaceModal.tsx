@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getPlacesService, deletePlaceService } from "@/app/services/placeServices";
+import { useRouter } from "next/navigation";
 
 interface ILugar{
   lugarId: number,
@@ -14,6 +15,7 @@ interface ILugar{
 
 export default function DeletePlaceModal(){
   const [places, setPlaces]=useState<ILugar[]>();
+  const router=useRouter()
   useEffect(()=>{
     getPlacesService().then((data)=>setPlaces(data));
   }, []);
@@ -27,7 +29,10 @@ export default function DeletePlaceModal(){
     e.preventDefault()
     const data=new FormData(e.target)
     const place = data.get("local");
-    await deletePlaceService(place);
+    const res = await deletePlaceService(place);
+    if (res){
+      window.location.reload();
+    }
   }
 
   return(

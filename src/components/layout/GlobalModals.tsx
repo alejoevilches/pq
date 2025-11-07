@@ -3,6 +3,7 @@ import { useModalStore } from "@/app/store/modalStore";
 import Modal from "./Modal";
 import AddPlaceModal from "../profile/AddPlaceModal";
 import DeletePlaceModal from "../profile/DeletePlaceModal";
+import AddTripModal from "../trips/AddTripModal";
 
 export default function GlobalModals() {
   const { openModal, closeModal } = useModalStore();

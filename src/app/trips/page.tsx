@@ -17,7 +17,7 @@ export default function TripsPage(){
 
   return(
     <section className="flex flex-col items-center justify-center">
-      <h1 className="text-4xl">Bienvenido a la pagina de gestion de viajes</h1>
+      <h1 className="text-4xl mt-26 pb-4">Bienvenido a la pagina de gestion de viajes</h1>
       <TripsTable />
       <div>
         <button onClick={()=>setOpenModal("addTrip")}>Crear viaje</button>

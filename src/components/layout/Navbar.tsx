@@ -13,7 +13,18 @@ export default async function Navbar(){
     nombre  = payload.nombre;
   }
   return(
-    <nav className="absolute left-1/2 -translate-x-1/2 flex flex-row bg-puroquilmes-200 items-center justify-between p-4 w-3xl mt-4 rounded-full gap-4">
+    <nav 
+      className="
+      absolute 
+      left-1/2 
+      -translate-x-1/2 
+      flex flex-row
+      bg-puroquilmes-200 
+      items-center 
+      justify-between 
+      p-4 w-3xl mt-4 
+      rounded-full 
+      gap-4">
       <a href='/'>Puro Quilmes</a>
       <form>
         <input 

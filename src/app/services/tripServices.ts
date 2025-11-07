@@ -3,3 +3,29 @@ export async function getTripsService(){
   const data = await res.json()
   return data;
 }
+
+//TODO: Tipado aca
+export async function addTripService(trip){
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/trips/create`, {
+    method: 'POST', 
+    body: JSON.stringify({...trip, estado: 1}),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  const data = await res.json()
+  return data;
+}
+
+//TODO: Tipado aca
+export async function deleteTripService(trip){
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/trips/delete`, {
+    method: 'POST', 
+    body: JSON.stringify(trip),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  const data = await res.json();
+  return data;
+}

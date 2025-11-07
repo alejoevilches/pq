@@ -1,6 +1,6 @@
 "use client"
 
-import { getTripsService } from "@/app/services/tripServices";
+import { getTripsService, deleteTripService } from "@/app/services/tripServices";
 import { useState, useEffect } from "react";
 
 interface ITrip{
@@ -22,26 +22,39 @@ export default function TripsTable(){
     return null
   }
 
-  return(
-    <table className="w-full border-collapse">
-      <thead>
-        <th>ID de Viaje</th>
-        <th>Número de Viaje</th>
-        <th>ID del Bus</th>
-        <th>Lugares Disponibles</th>
-        <th>Fecha del Viaje</th>
-      </thead>
-      <tbody>
-        {trips.map((trip)=>(
-          <tr key={trip.viajeId}>
-            <td>{trip.viajeId}</td>
-            <td>{trip.nroViaje}</td>
-            <td>{trip.busId}</td>
-            <td>{trip.lugaresDisponibles}</td>
-            <td>{trip.fecha}</td>
+  const handleDeleteTrip = async (trip: Number) =>{
+    await deleteTripService(trip);
+  }
+
+  return (
+    <div className="w-3/4 mx-auto overflow-x-auto">
+      <table className="w-full border-collapse text-left">
+        <thead className="bg-gray-300">
+          <tr>
+            <th className="px-4 py-2">ID de Viaje</th>
+            <th className="px-4 py-2">Número de Viaje</th>
+            <th className="px-4 py-2">ID del Bus</th>
+            <th className="px-4 py-2">Lugares Disponibles</th>
+            <th className="px-4 py-2">Fecha del Viaje</th>
+            <th className="px-4 py-2">Acciones</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {trips.map((trip) => (
+            <tr
+              key={trip.viajeId}
+              className="even:bg-puroquilmes-200 odd:bg-white"
+            >
+              <td className="px-4 py-2">{trip.viajeId}</td>
+              <td className="px-4 py-2">{trip.nroViaje}</td>
+              <td className="px-4 py-2">{trip.busId}</td>
+              <td className="px-4 py-2">{trip.lugaresDisponibles}</td>
+              <td className="px-4 py-2">{trip.fecha}</td>
+              <td onClick={()=>handleDeleteTrip(trip.viajeId)}>Eliminar</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   )
 }
