@@ -17,7 +17,7 @@ export class Lugares {
   @Column("int", { name: "tipo_lugar_id", nullable: true })
   tipoLugarId: number | null;
 
-  @Column("varchar", { name: "descripcion", nullable: true, length: 100 })
+  @Column("text", { name: "descripcion", nullable: true })
   descripcion: string | null;
 
   @Column("tinyint", { name: "estado", nullable: true, width: 1 })
