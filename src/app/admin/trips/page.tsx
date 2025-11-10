@@ -1,16 +1,7 @@
 "use client"
 
 import TripsTable from "@/components/trips/TripsTable"
-import { useModalStore } from "../store/modalStore"
-
-interface ITrip{
-  viajeId: number,
-  nroViaje: number,
-  busId: number,
-  lugaresDisponibles: number,
-  fecha: Date,
-  estado: number
-}
+import { useModalStore } from "../../store/modalStore"
 
 export default function TripsPage(){
   const {setOpenModal} = useModalStore();
