@@ -15,3 +15,4 @@
 - LOGOUT: Modal que indique que la sesion esta cerrada
 - PROFILE: La pagina deberia estar protegida si no iniciaste sesion
 - TRIPS: Necesito el toast que diga que se elimino el viaje y que se actualice la pagina.
+- DB: Desde la db tiene que haber un bool que diga que debe ser agregado en la portada el local

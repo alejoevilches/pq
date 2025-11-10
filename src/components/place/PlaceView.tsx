@@ -7,7 +7,7 @@ interface IPlaceView{
   id: number
 }
 
-interface IPlace{
+export interface IPlace{
   lugarId: number,
   nombre: string,
   ubicacion: string,
@@ -30,6 +30,12 @@ export default function PlaceView({id}: IPlaceView){
   }
 
   return(
-    <h1>{place.nombre}</h1>
+    <div className="mt-26">
+      <h1>{place.nombre}</h1>
+      <ul>
+        <li>{place.descripcion}</li>
+        <li>{place.ubicacion}</li>
+      </ul>
+    </div>
   )
 }
