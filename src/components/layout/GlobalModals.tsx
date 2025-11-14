@@ -4,6 +4,7 @@ import Modal from "./Modal";
 import AddPlaceModal from "../profile/AddPlaceModal";
 import DeletePlaceModal from "../profile/DeletePlaceModal";
 import AddTripModal from "../trips/AddTripModal";
+import AddPassengerModal from "../trips/AddPassengerModal";
 
 export default function GlobalModals() {
   const { openModal, closeModal } = useModalStore();
@@ -27,6 +28,12 @@ export default function GlobalModals() {
           <AddTripModal />
         </Modal>
       );
+    case "addPassenger":
+      return(
+        <Modal title="Agregar pasajero" onClose={closeModal}>
+          <AddPassengerModal />
+        </Modal>
+      )
     default:
       return null;
   }

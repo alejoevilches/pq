@@ -1,4 +1,21 @@
+"use client"
+import { redirect } from "next/navigation";
+import getCookies from "@/app/lib/auth/getCookies";
+import { useModalStore } from "@/app/store/modalStore";
+
 export default function PaseoGastronomicoPage() {
+
+  const { setOpenModal } = useModalStore();
+
+  const handleOpenModal=async ()=>{
+    const check = await getCookies("token")
+    if(check){
+      setOpenModal("addPassenger")
+    } else {
+      redirect("/login")
+    }
+  }
+
   return (
     <div className="p-6 max-w-4xl mx-auto">
       <h1 className="text-4xl font-bold text-center mb-6">
@@ -37,6 +54,9 @@ export default function PaseoGastronomicoPage() {
       <p className="text-lg mb-4">
         ¡Te esperamos con los brazos abiertos para que vivas una experiencia inolvidable en el Paseo Gastronómico de Quilmes! No olvides compartir tus momentos favoritos en redes sociales usando el hashtag #PaseoGastronomicoQuilmes.
       </p>
+      <button onClick={handleOpenModal}>
+        Quiero ir
+      </button>
     </div>
   );
 }

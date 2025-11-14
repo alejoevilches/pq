@@ -29,3 +29,15 @@ export async function deleteTripService(trip){
   const data = await res.json();
   return data;
 }
+
+export async function addPassengerService(passenger){
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/trips/addPassenger`, {
+    method: 'POST', 
+    body: JSON.stringify(trip),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  const data = await res.json()
+  return data;
+}
