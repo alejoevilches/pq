@@ -6,6 +6,7 @@ import { Zonas } from "@/entities/entities/Zonas";
 import { Lugares } from "@/entities/entities/Lugares";
 import { Viajes } from "@/entities/entities/Viajes";
 import { Buses } from "@/entities/entities/Buses";
+import { Pasajeros } from "@/entities/entities/Pasajeros";
 
 export const AppDataSource = new DataSource({
     type: "mysql",
@@ -17,7 +18,7 @@ export const AppDataSource = new DataSource({
     synchronize: true, //poner en true si estamos usando la base local
     subscribers: [],
     migrations: [],
-    entities: [Usuarios, TipoLugar, Zonas, Lugares, Viajes, Buses],
+    entities: [Usuarios, TipoLugar, Zonas, Lugares, Viajes, Buses, Pasajeros],
 })
 
 export const initializeDataSource = async () => {

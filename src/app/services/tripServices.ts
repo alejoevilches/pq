@@ -33,11 +33,21 @@ export async function deleteTripService(trip){
 export async function addPassengerService(passenger){
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/trips/addPassenger`, {
     method: 'POST', 
-    body: JSON.stringify(trip),
+    body: JSON.stringify(passenger),
     headers: {
       'Content-Type': 'application/json',
     },
   });
-  const data = await res.json()
-  return data;
+  const data = await res.json();
+  return { ok: res.ok, status: res.status, data };
+}
+
+export async function deleteReservationService(payload:{ pasajeroId?: number; viajeId?: number; usuarioId?: number }){
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/trips/deleteReservation`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  const data = await res.json();
+  return { ok: res.ok, status: res.status, data };
 }

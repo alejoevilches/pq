@@ -2,6 +2,7 @@ import { jwtVerify } from 'jose';
 import { cookies } from 'next/headers';
 import NoUserMenu from '../navbar/noUserMenu';
 import LoggedMenu from '../navbar/loggedMenu';
+import SearchBar from './SearchBar';
 
 export default async function Navbar(){
   const cookieStore = await cookies();
@@ -26,13 +27,7 @@ export default async function Navbar(){
       rounded-full 
       gap-4">
       <a href='/'>Puro Quilmes</a>
-      <form>
-        <input 
-          type="text"
-          placeholder="Busca tus lugares favoritos"
-          className="bg-white rounded-full p-2"  
-        />
-      </form>
+      <SearchBar />
       <section className="flex flex-row gap-4">
         { token ? <LoggedMenu name={nombre} /> : <NoUserMenu /> }
       </section>

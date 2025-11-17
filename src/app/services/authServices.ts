@@ -1,23 +1,29 @@
-import loginAction from "../lib/auth/loginAction";
 import logoutAction from "../lib/auth/logoutAction";
 
 //TODO: Tipado aca
-export function loginService(formValues){
+export async function loginService(formValues){
   try{
-    fetch("/api/auth/login", {method: "POST", body: JSON.stringify(formValues)})
-      .then((res)=>res.json())
-      .then((data)=>loginAction(data));
+    const res = await fetch("/api/auth/login", {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formValues),
+    });
+    const data = await res.json();
+    return { ok: res.ok, status: res.status, data };
   }catch(e){
     console.error(e);
+    throw e;
   }
 }
 
 export async function logoutService(){
   try{
-    fetch("api/auth/logout", {method:"POST"})
-      .then((res)=>res.json())
-      .then(()=>logoutAction())
+    const res = await fetch("/api/auth/logout", {method:"POST"});
+    const data = await res.json();
+    await logoutAction();
+    return data;
   } catch (e) {
     console.error(e);
+    throw e;
   }
 }

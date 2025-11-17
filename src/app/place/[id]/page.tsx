@@ -1,4 +1,4 @@
-import PlaceView from "@/components/place/PlaceView";
+import PlaceData from '@/components/place/PlaceData';
 
 export interface IPlacePage {
   params: { id: number };
@@ -9,7 +9,8 @@ export default async function PlacePage({ params }: IPlacePage) {
 
   return (
     <section className="flex flex-col items-center justify-center">
-      <PlaceView id={id} />
+      {/* PlaceData is a client component that fetches and renders the place details */}
+      <PlaceData params={{ id: String(id) }} />
     </section>
   );
 }

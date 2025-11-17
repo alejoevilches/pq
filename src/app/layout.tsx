@@ -11,10 +11,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body>
+      <body className="min-h-screen flex flex-col">
         <ToastContainer />
         <Navbar />
-        {children}
+        <main className="flex-1">{children}</main>
         <GlobalModals />
         <Footer />
       </body>
